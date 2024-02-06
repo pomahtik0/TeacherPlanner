@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TeacherPlanner.Classes
 {
-    internal class Theme
+    public class Theme
     {
     }
 }
