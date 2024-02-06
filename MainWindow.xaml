@@ -18,6 +18,15 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,10,25,0">
+                        <Label>Назва класу:</Label>
+                        <Label>Кількість учнів:</Label>
+                        <Label>Кількість уроків:</Label>
+                    </StackPanel>
+                    <StackPanel Margin="10" Grid.Column="1">
+                        <Label>Кількість тем:</Label>
+                        <Label>Теми:</Label>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Дати"></TabItem>
