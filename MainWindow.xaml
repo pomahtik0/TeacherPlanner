@@ -22,11 +22,13 @@
             </Expander>
         </DataTemplate>
     </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        
         <TabControl>
             <TabItem Header="Загальна інформація">
                 <Grid>
@@ -34,6 +36,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    
                     <StackPanel Margin="10,10,25,0">
                         <Label>Назва класу:</Label>
                         <Label>Кількість учнів:</Label>
@@ -45,6 +48,7 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
+            
             <TabItem Header="Дати">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -74,6 +78,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        
         <Button Grid.Row="1" Margin="10" HorizontalAlignment="Center">Підтвердити</Button>
     </Grid>
 </Window>
