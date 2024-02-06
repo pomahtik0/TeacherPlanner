@@ -30,10 +30,14 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Дати">
-                <StackPanel Margin="10">
+                <StackPanel Margin="10" HorizontalAlignment="Left">
                     <Label>Дата початку:</Label>
+                    <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short"/>
                     <Label>Дата кінця:</Label>
-                    <Label>Дні:</Label>
+                    <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Дні:</Label>
+                    </StackPanel>
                     <Label>Канікули і вихідні:</Label>
                 </StackPanel>
             </TabItem>
