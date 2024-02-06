@@ -63,9 +63,9 @@
                         </StackPanel>
                     </StackPanel>
                     <DockPanel Grid.Column="1">
-                        <Label>Канікули і вихідні:</Label>
-                        <ListView ItemTemplate="{StaticResource ResourceKey=dateListTemplate}" d:ItemsSource="{d:SampleData ItemCount=10}"/>
-                        <Button HorizontalAlignment="Center" Margin="5">Додати нові дати</Button>
+                        <Label DockPanel.Dock="Top">Канікули і вихідні:</Label>
+                        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="5">Додати нові дати</Button>
+                        <ListView ItemTemplate="{StaticResource ResourceKey=dateListTemplate}" d:ItemsSource="{d:SampleData ItemCount=15}"/>
                     </DockPanel>
                 </Grid>
             </TabItem>
