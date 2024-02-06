@@ -9,6 +9,7 @@ namespace TeacherPlanner.Classes
 {
     public class Theme
     {
+        public string Name { get; set; } = "";
         public ObservableCollection<Lesson> Lessons { get; set; } = [];
     }
 }
