@@ -42,25 +42,32 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Дати">
-                <StackPanel Margin="10" HorizontalAlignment="Left">
-                    <Label>Дата початку:</Label>
-                    <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
-                    <Label>Дата кінця:</Label>
-                    <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Label>Дні:</Label>
-                        <CheckBox x:Name="monday">Пн.</CheckBox>
-                        <CheckBox x:Name="tuesday">Вт.</CheckBox>
-                        <CheckBox x:Name="wednesday">Ср.</CheckBox>
-                        <CheckBox x:Name="thursday">Чт.</CheckBox>
-                        <CheckBox x:Name="friday">Пт.</CheckBox>
-                        <CheckBox x:Name="saturday">Сб.</CheckBox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10" HorizontalAlignment="Left">
+                        <Label>Дата початку:</Label>
+                        <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
+                        <Label>Дата кінця:</Label>
+                        <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Дні:</Label>
+                            <CheckBox x:Name="monday">Пн.</CheckBox>
+                            <CheckBox x:Name="tuesday">Вт.</CheckBox>
+                            <CheckBox x:Name="wednesday">Ср.</CheckBox>
+                            <CheckBox x:Name="thursday">Чт.</CheckBox>
+                            <CheckBox x:Name="friday">Пт.</CheckBox>
+                            <CheckBox x:Name="saturday">Сб.</CheckBox>
+                        </StackPanel>
                     </StackPanel>
-                    <Label>Канікули і вихідні:</Label>
-                    <ListView ItemTemplate="{StaticResource ResourceKey=dateListTemplate}" d:ItemsSource="{d:SampleData ItemCount=5}">
-                    </ListView>
-                    <Button HorizontalAlignment="Center" Margin="5"> Додати нові дати</Button>
-                </StackPanel>
+                    <DockPanel Grid.Column="1">
+                        <Label>Канікули і вихідні:</Label>
+                        <ListView ItemTemplate="{StaticResource ResourceKey=dateListTemplate}" d:ItemsSource="{d:SampleData ItemCount=10}"/>
+                        <Button HorizontalAlignment="Center" Margin="5">Додати нові дати</Button>
+                    </DockPanel>
+                </Grid>
             </TabItem>
         </TabControl>
         <Button Grid.Row="1" Margin="10" HorizontalAlignment="Center">Підтвердити</Button>
