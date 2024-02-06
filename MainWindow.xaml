@@ -44,12 +44,12 @@
                     <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left"/>
                     <StackPanel Orientation="Horizontal">
                         <Label>Дні:</Label>
-                        <CheckBox>Пн.</CheckBox>
-                        <CheckBox>Вт.</CheckBox>
-                        <CheckBox>Ср.</CheckBox>
-                        <CheckBox>Чт.</CheckBox>
-                        <CheckBox>Пт.</CheckBox>
-                        <CheckBox>Сб.</CheckBox>
+                        <CheckBox x:Name="monday">Пн.</CheckBox>
+                        <CheckBox x:Name="tuesday">Вт.</CheckBox>
+                        <CheckBox x:Name="wednesday">Ср.</CheckBox>
+                        <CheckBox x:Name="thursday">Чт.</CheckBox>
+                        <CheckBox x:Name="friday">Пт.</CheckBox>
+                        <CheckBox x:Name="saturday">Сб.</CheckBox>
                     </StackPanel>
                     <Label>Канікули і вихідні:</Label>
                 </StackPanel>
