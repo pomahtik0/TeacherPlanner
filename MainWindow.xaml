@@ -37,11 +37,11 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Дати">
-                <StackPanel Margin="10" HorizontalAlignment="Left">
+                <StackPanel Margin="10">
                     <Label>Дата початку:</Label>
-                    <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short"/>
+                    <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left"/>
                     <Label>Дата кінця:</Label>
-                    <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short"/>
+                    <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left"/>
                     <StackPanel Orientation="Horizontal">
                         <Label>Дні:</Label>
                         <CheckBox>Пн.</CheckBox>
