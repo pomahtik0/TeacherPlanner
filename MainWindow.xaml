@@ -1,4 +1,4 @@
-﻿<Window x:Class="TeacherPlanner.MainWindow"
+﻿<Window x:Name="window" x:Class="TeacherPlanner.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,10 +13,10 @@
             <Setter Property="Margin" Value="3,0"/>
         </Style>
         <DataTemplate x:Key="dateListTemplate">
-            <Expander Name="calendarExpander" 
+            <Expander Name="calendarExpander" DataContext="{Binding ElementName=hollidayDates, Mode=OneWay}"
                       IsExpanded="{Binding Path=IsSelected, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}, Mode=FindAncestor}}"
                       Header="">
-                <Calendar SelectionMode="SingleRange" IsTodayHighlighted="False"/>
+                <Calendar x:Name="hollidayDates" SelectionMode="SingleRange" IsTodayHighlighted="False"/>
             </Expander>
         </DataTemplate>
     </Window.Resources>
