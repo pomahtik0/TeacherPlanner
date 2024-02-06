@@ -13,8 +13,10 @@
             <Setter Property="Margin" Value="3,0"/>
         </Style>
         <DataTemplate x:Key="dateListTemplate">
-            <Expander IsExpanded="{Binding Path=IsSelected}">
-                <Calendar SelectionMode="SingleRange"/>
+            <Expander Name="calendarExpander" 
+                      IsExpanded="{Binding Path=IsSelected, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}, Mode=FindAncestor}}"
+                      Header="">
+                <Calendar SelectionMode="SingleRange" IsTodayHighlighted="False"/>
             </Expander>
         </DataTemplate>
     </Window.Resources>
