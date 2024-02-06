@@ -37,7 +37,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Дати">
-                <StackPanel Margin="10">
+                <StackPanel Margin="10" HorizontalAlignment="Left">
                     <Label>Дата початку:</Label>
                     <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
                     <Label>Дата кінця:</Label>
@@ -52,6 +52,9 @@
                         <CheckBox x:Name="saturday">Сб.</CheckBox>
                     </StackPanel>
                     <Label>Канікули і вихідні:</Label>
+                    <ListView>
+                    </ListView>
+                    <Button HorizontalAlignment="Center" Margin="5"> Додати нові дати</Button>
                 </StackPanel>
             </TabItem>
         </TabControl>
