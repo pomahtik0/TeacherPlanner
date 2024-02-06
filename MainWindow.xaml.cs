@@ -20,5 +20,10 @@ namespace TeacherPlanner
         {
             InitializeComponent();
         }
+
+        private void AddNewHolliday_Button_Click(object sender, RoutedEventArgs e)
+        {
+            listOfHollidays.Items.Add(21);
+        }
     }
 }
