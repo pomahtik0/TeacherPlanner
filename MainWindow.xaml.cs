@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,6 +26,17 @@ namespace TeacherPlanner
         private void AddNewHolliday_Button_Click(object sender, RoutedEventArgs e)
         {
             listOfHollidays.Items.Add(21);
+        }
+
+        private void hollidayDates_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var control = sender as Control;
+            var parent = control?.Parent as Expander;
+            if (parent != null)
+            {
+                parent.GetBindingExpression(Expander.HeaderProperty).UpdateTarget();
+                parent.IsExpanded = false;
+            }
         }
     }
 }
