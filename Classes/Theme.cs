@@ -11,5 +11,23 @@ namespace TeacherPlanner.Classes
     {
         public string Name { get; set; } = "";
         public ObservableCollection<Lesson> Lessons { get; set; } = [];
+        public int NumberOfLessons
+        {
+            get => Lessons.Count;
+            set
+            {
+                if (value < NumberOfLessons)
+                {
+                    Lessons = new ObservableCollection<Lesson>(Lessons.Take(value));
+                }
+                else
+                {
+                    while (value++ > NumberOfLessons)
+                    {
+                        Lessons.Add(new Lesson());
+                    }
+                }
+            }
+        }
     }
 }
