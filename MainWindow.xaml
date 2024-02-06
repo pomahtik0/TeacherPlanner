@@ -12,6 +12,11 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="3,0"/>
         </Style>
+        <DataTemplate x:Key="dateListTemplate">
+            <Expander>
+                <Calendar SelectionMode="SingleRange"/>
+            </Expander>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -52,7 +57,7 @@
                         <CheckBox x:Name="saturday">Сб.</CheckBox>
                     </StackPanel>
                     <Label>Канікули і вихідні:</Label>
-                    <ListView>
+                    <ListView ItemTemplate="{StaticResource ResourceKey=dateListTemplate}" d:ItemsSource="{d:SampleData ItemCount=5}">
                     </ListView>
                     <Button HorizontalAlignment="Center" Margin="5"> Додати нові дати</Button>
                 </StackPanel>
