@@ -15,10 +15,10 @@
             <Setter Property="Margin" Value="3,0"/>
         </Style>
         <DataTemplate x:Key="dateListTemplate">
-            <Expander Name="calendarExpander" DataContext="{Binding ElementName=hollidayDates, Mode=OneWay}"
-                      IsExpanded="{Binding Path=IsSelected, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}, Mode=FindAncestor}}"
-                      Header="{Binding Path=SelectedDates, Mode=OneWay, Converter={StaticResource dateToStringConverter}}">
-                <Calendar x:Name="hollidayDates" SelectionMode="SingleRange" IsTodayHighlighted="False"/>
+            <Expander Name="calendarExpander" 
+                      IsExpanded="{Binding Path=IsSelected, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}, Mode=FindAncestor}}"
+                      Header="{Binding Path=SelectedDates, ElementName=hollidayDates, Mode=OneWay, UpdateSourceTrigger=Explicit, Converter={StaticResource dateToStringConverter}}">
+                <Calendar SelectedDatesChanged="hollidayDates_SelectedDatesChanged" x:Name="hollidayDates" SelectionMode="SingleRange" IsTodayHighlighted="False"/>
             </Expander>
         </DataTemplate>
     </Window.Resources>
