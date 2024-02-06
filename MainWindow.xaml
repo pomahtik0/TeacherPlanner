@@ -39,9 +39,9 @@
             <TabItem Header="Дати">
                 <StackPanel Margin="10">
                     <Label>Дата початку:</Label>
-                    <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left"/>
+                    <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
                     <Label>Дата кінця:</Label>
-                    <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left"/>
+                    <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
                     <StackPanel Orientation="Horizontal">
                         <Label>Дні:</Label>
                         <CheckBox x:Name="monday">Пн.</CheckBox>
