@@ -29,7 +29,14 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Дати"></TabItem>
+            <TabItem Header="Дати">
+                <StackPanel Margin="10">
+                    <Label>Дата початку:</Label>
+                    <Label>Дата кінця:</Label>
+                    <Label>Дні:</Label>
+                    <Label>Канікули і вихідні:</Label>
+                </StackPanel>
+            </TabItem>
         </TabControl>
         <Button Grid.Row="1" Margin="10" HorizontalAlignment="Center">Підтвердити</Button>
     </Grid>
