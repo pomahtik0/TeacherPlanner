@@ -7,7 +7,7 @@ using TeacherPlanner.Classes.Interfaces;
 
 namespace TeacherPlanner.Classes
 {
-    internal class MyDocument : ConvertToPDF
+    internal class MyGroup : ConvertToPDF
     {
         public void ConvertToPDF(string filename)
         {
