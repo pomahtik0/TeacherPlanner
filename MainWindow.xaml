@@ -43,9 +43,15 @@
                         <Label>Назва класу:</Label>
                         <TextBox Text="{Binding GroupName, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus, Source={StaticResource group}}"/>
                         <Label>Кількість учнів:</Label>
-                        <TextBox Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Width="30" Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
+                            <Button>Завантажити</Button>
+                        </StackPanel>
                         <Label>Кількість уроків:</Label>
-                        <TextBox Text="{Binding GeneralNumberOfLessons, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Width="30" Text="{Binding GeneralNumberOfLessons, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
+                            <Button>Завантажити</Button>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1">
                         <Label>Кількість тем:</Label>
