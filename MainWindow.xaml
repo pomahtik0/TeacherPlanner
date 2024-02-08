@@ -92,9 +92,9 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Margin="10" HorizontalAlignment="Left">
                         <Label>Дата початку:</Label>
-                        <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
+                        <DatePicker Text="Дата початку" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False" DisplayDate="{Binding startDate, Mode=OneWayToSource, Source={StaticResource group}}"/>
                         <Label>Дата кінця:</Label>
-                        <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
+                        <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False" DisplayDate="{Binding EndDate, Mode=OneWayToSource, Source={StaticResource group}}"/>
                         <StackPanel Orientation="Horizontal">
                             <Label>Дні:</Label>
                             <CheckBox x:Name="monday">Пн.</CheckBox>
