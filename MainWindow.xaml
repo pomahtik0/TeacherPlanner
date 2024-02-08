@@ -23,14 +23,6 @@
                 <Calendar SelectedDatesChanged="hollidayDates_SelectedDatesChanged" x:Name="hollidayDates" SelectionMode="SingleRange" IsTodayHighlighted="False"/>
             </Expander>
         </DataTemplate>
-        <DataTemplate x:Key="themeListTemplate" DataType="{x:Type types:Theme}">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock/>
-                <TextBox/>
-                <TextBox/>
-                <CheckBox/>
-            </StackPanel>
-        </DataTemplate>
     </Window.Resources>
     
     <Grid>
@@ -59,9 +51,43 @@
                         <Label>Кількість тем:</Label>
                         <TextBox Text="{Binding NumberOfThemes, Mode=OneWayToSource, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                         <Label>Теми:</Label>
-                        <Viewbox>
-                            
-                        </Viewbox>
+                        <ListView ItemsSource="{Binding Path=Themes, Mode=OneWay, Source={StaticResource group}}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="№">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Grid.Column="0" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=ContentIndex}" VerticalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                    <GridViewColumn Header="Назва Теми">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox Width="350" Text="{Binding Path=Name, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                    <GridViewColumn Header="Уроків в темі">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox Width="50" Text="{Binding Path=NumberOfLessons, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                    <GridViewColumn Header="Тематичний контроль">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox IsChecked="{Binding Path=IsThemeControll, Mode=OneWayToSource}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
                     </StackPanel>
                 </Grid>
             </TabItem>
