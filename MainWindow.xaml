@@ -97,12 +97,12 @@
                         <DatePicker Text="Дата Кінця" FirstDayOfWeek="Monday" SelectedDateFormat="Short" HorizontalAlignment="Left" IsTodayHighlighted="False" DisplayDate="{Binding EndDate, Mode=OneWayToSource, Source={StaticResource group}}"/>
                         <StackPanel Orientation="Horizontal">
                             <Label>Дні:</Label>
-                            <CheckBox x:Name="monday">Пн.</CheckBox>
-                            <CheckBox x:Name="tuesday">Вт.</CheckBox>
-                            <CheckBox x:Name="wednesday">Ср.</CheckBox>
-                            <CheckBox x:Name="thursday">Чт.</CheckBox>
-                            <CheckBox x:Name="friday">Пт.</CheckBox>
-                            <CheckBox x:Name="saturday">Сб.</CheckBox>
+                            <CheckBox IsChecked="{Binding daysOfStudy[0], Mode=OneWayToSource, Source={StaticResource group}}">Пн.</CheckBox>
+                            <CheckBox IsChecked="{Binding daysOfStudy[1], Mode=OneWayToSource, Source={StaticResource group}}">Вт.</CheckBox>
+                            <CheckBox IsChecked="{Binding daysOfStudy[2], Mode=OneWayToSource, Source={StaticResource group}}">Ср.</CheckBox>
+                            <CheckBox IsChecked="{Binding daysOfStudy[3], Mode=OneWayToSource, Source={StaticResource group}}">Чт.</CheckBox>
+                            <CheckBox IsChecked="{Binding daysOfStudy[4], Mode=OneWayToSource, Source={StaticResource group}}">Пт.</CheckBox>
+                            <CheckBox IsChecked="{Binding daysOfStudy[5], Mode=OneWayToSource, Source={StaticResource group}}">Сб.</CheckBox>
                         </StackPanel>
                     </StackPanel>
                     <DockPanel Grid.Column="1">
