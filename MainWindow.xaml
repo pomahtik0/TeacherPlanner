@@ -41,7 +41,7 @@
                     
                     <StackPanel Margin="10,10,25,0">
                         <Label>Назва класу:</Label>
-                        <TextBox/>
+                        <TextBox x:Name="groupName_TextBox" Text="{Binding GroupName, Mode=OneWayToSource, UpdateSourceTrigger=Explicit, Source={StaticResource group}}"/>
                         <Label>Кількість учнів:</Label>
                         <TextBox/>
                         <Label>Кількість уроків:</Label>
