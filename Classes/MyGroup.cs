@@ -100,6 +100,7 @@ namespace TeacherPlanner.Classes
                 xlWorkBook?.Close(false);
                 xlApp?.Quit();
             }
+            return namesList;
         }
         public void UploadListOfStudentNames_excel(string fileName)
         {
