@@ -69,6 +69,15 @@ namespace TeacherPlanner.Classes
             throw new NotImplementedException();
         }
 
+        public void SaveDatesToLessons()
+        { 
+            // calculate dates
+            // apply dates for each lesson
+            // throw if not enough dates
+            // throw if not enough lessons
+            throw new NotImplementedException();
+        }
+
         public void ConvertToPDF(string filename)
         {
             throw new NotImplementedException();
