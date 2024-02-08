@@ -37,6 +37,10 @@ namespace TeacherPlanner.Classes
 
         private List<string> studentNameList = []; // May be not full list, or oversized
         
+        public int GeneralNumberOfLessons { get; set; }
+
+        private List<string> lesonNameList = [];
+
         public void ConvertToPDF(string filename)
         {
             throw new NotImplementedException();
