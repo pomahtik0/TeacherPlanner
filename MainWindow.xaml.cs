@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.Win32;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Net.WebSockets;
 using System.Text;
@@ -69,7 +70,17 @@ namespace TeacherPlanner
 
         private string? GetExcelDocument()
         {
-            throw new NotImplementedException();
+            var fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Ексель|*.xls;*.xlsx";
+            var result = fileDialog.ShowDialog();
+            if(result == true)
+            {
+                return fileDialog.FileName;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private void UploadListOfStudets_Button_Click(object sender, RoutedEventArgs e)
