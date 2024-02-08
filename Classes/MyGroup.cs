@@ -49,8 +49,6 @@ namespace TeacherPlanner.Classes
 
         public bool[] daysOfStudy { get; } = new bool[6]; // Mon. Tue. Wed. Thu. Fri. Sat.
 
-        public bool IsThemeControll { get; set; }
-
         public void UploadListOfStudentNames_exel(string fileName)
         {
             // checks for file format
