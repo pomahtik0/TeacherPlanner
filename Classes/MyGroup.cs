@@ -41,6 +41,22 @@ namespace TeacherPlanner.Classes
 
         private List<string> lesonNameList = []; // May be not full list, or oversized
 
+        public void UploadListOfStudentNames_exel(string fileName)
+        {
+            // checks for file format
+            // loading names to a list
+            // setting NumberOfStudents to list count
+            // source was updated event
+        }
+
+        public void UploadListOfLesonNames_exel(string fileName)
+        {
+            // checks for file format
+            // loading names to a list
+            // setting GeneralNumberOfLessons to list count
+            // source was updated event
+        }
+
         public void ConvertToPDF(string filename)
         {
             throw new NotImplementedException();
