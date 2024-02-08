@@ -66,5 +66,15 @@ namespace TeacherPlanner
                 Keyboard.Focus(mainGrid);
             }
         }
+
+        private void UploadListOfStudets_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UploadListOfLessons_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

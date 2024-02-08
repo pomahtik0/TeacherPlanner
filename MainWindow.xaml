@@ -45,12 +45,12 @@
                         <Label>Кількість учнів:</Label>
                         <StackPanel Orientation="Horizontal">
                             <TextBox Width="30" Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
-                            <Button>Завантажити</Button>
+                            <Button Click="UploadListOfStudets_Button_Click">Завантажити</Button>
                         </StackPanel>
                         <Label>Кількість уроків:</Label>
                         <StackPanel Orientation="Horizontal">
                             <TextBox Width="30" Text="{Binding GeneralNumberOfLessons, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
-                            <Button>Завантажити</Button>
+                            <Button Click="UploadListOfLessons_Button_Click">Завантажити</Button>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1">
