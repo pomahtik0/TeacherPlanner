@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <types:MyGroup x:Key="group" x:Name="group"/>
+        <types:MyGroup x:Key="group"/>
         <converters:DatesToStringOneWay x:Key="dateToStringConverter"/>
         <Style TargetType="{x:Type CheckBox}">
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -41,7 +41,7 @@
                     
                     <StackPanel Margin="10,10,25,0">
                         <Label>Назва класу:</Label>
-                        <TextBox x:Name="groupName_TextBox" Text="{Binding GroupName, Mode=OneWayToSource, UpdateSourceTrigger=Explicit, Source={StaticResource group}}"/>
+                        <TextBox x:Name="groupName_TextBox" Text="{Binding GroupName, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus, Source={StaticResource group}}"/>
                         <Label>Кількість учнів:</Label>
                         <TextBox/>
                         <Label>Кількість уроків:</Label>
