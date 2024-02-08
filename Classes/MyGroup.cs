@@ -47,6 +47,7 @@ namespace TeacherPlanner.Classes
             // loading names to a list
             // setting NumberOfStudents to list count
             // source was updated event
+            throw new NotImplementedException();
         }
 
         public void UploadListOfLesonNames_exel(string fileName)
@@ -55,6 +56,7 @@ namespace TeacherPlanner.Classes
             // loading names to a list
             // setting GeneralNumberOfLessons to list count
             // source was updated event
+            throw new NotImplementedException();
         }
 
         public void ConvertToPDF(string filename)
