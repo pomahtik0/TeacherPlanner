@@ -108,7 +108,7 @@
                     <DockPanel Grid.Column="1">
                         <Label DockPanel.Dock="Top">Канікули і вихідні:</Label>
                         <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="5" Click="AddNewHolliday_Button_Click">Додати нові дати</Button>
-                        <ListView x:Name="listOfHollidays" ItemTemplate="{StaticResource ResourceKey=dateListTemplate}"/>
+                        <ListView x:Name="listOfHollidays"  ItemTemplate="{StaticResource ResourceKey=dateListTemplate}" ItemsSource="{Binding listOfHollidays, Source={StaticResource group}}"/>
                     </DockPanel>
                 </Grid>
             </TabItem>
