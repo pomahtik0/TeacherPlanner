@@ -45,5 +45,10 @@ namespace TeacherPlanner
         {
             group = this.TryFindResource("group") as MyGroup;
         }
+
+        private void Submit_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
