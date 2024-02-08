@@ -54,14 +54,6 @@
                         <ListView ItemsSource="{Binding Path=Themes, Mode=OneWay, Source={StaticResource group}}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="№">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Grid.Column="0" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=ContentIndex}" VerticalAlignment="Center"/>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                    
                                     <GridViewColumn Header="Назва Теми">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
