@@ -39,8 +39,11 @@
                     
                     <StackPanel Margin="10,10,25,0">
                         <Label>Назва класу:</Label>
+                        <TextBox/>
                         <Label>Кількість учнів:</Label>
+                        <TextBox/>
                         <Label>Кількість уроків:</Label>
+                        <TextBox/>
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1">
                         <Label>Кількість тем:</Label>
