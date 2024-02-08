@@ -47,6 +47,8 @@ namespace TeacherPlanner.Classes
 
         public List<DateTime> listOfHollidays { get; set; } = [];
 
+        public bool[] daysOfStudy { get; } = new bool[6]; // Mon. Tue. Wed. Thu. Fri. Sat.
+
         public void UploadListOfStudentNames_exel(string fileName)
         {
             // checks for file format
