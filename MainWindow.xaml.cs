@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeacherPlanner.Classes;
 
 namespace TeacherPlanner
 {
@@ -18,6 +19,7 @@ namespace TeacherPlanner
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MyGroup? group;
         public MainWindow()
         {
             InitializeComponent();
@@ -37,6 +39,11 @@ namespace TeacherPlanner
                 parent.GetBindingExpression(Expander.HeaderProperty).UpdateTarget();
                 parent.IsExpanded = false;
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            group = this.TryFindResource("group") as MyGroup;
         }
     }
 }
