@@ -57,5 +57,14 @@ namespace TeacherPlanner
         {
             
         }
+
+        private void window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Return || e.Key == Key.Enter)
+            {
+                Debug.WriteLine(e.Key);
+                Keyboard.Focus(mainGrid);
+            }
+        }
     }
 }
