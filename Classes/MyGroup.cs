@@ -25,7 +25,7 @@ namespace TeacherPlanner.Classes
                 }
                 else
                 {
-                    while (value++ > NumberOfThemes)
+                    while (value > NumberOfThemes)
                     {
                         Themes.Add(new Theme());
                     }
