@@ -49,6 +49,7 @@
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1">
                         <Label>Кількість тем:</Label>
+                        <TextBox Text="{Binding NumberOfThemes, Mode=OneWayToSource, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                         <Label>Теми:</Label>
                     </StackPanel>
                 </Grid>
