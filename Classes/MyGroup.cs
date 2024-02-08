@@ -45,7 +45,7 @@ namespace TeacherPlanner.Classes
 
         public DateTime EndDate { get; set; }
 
-        public ObservableCollection<DateTime[]> listOfHollidays { get; set; } = [];
+        public ObservableCollection<IEnumerable<DateTime>> listOfHollidays { get; set; } = [];
 
         public bool[] daysOfStudy { get; } = new bool[6]; // Mon. Tue. Wed. Thu. Fri. Sat.
 
