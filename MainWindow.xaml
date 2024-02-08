@@ -63,7 +63,7 @@
                                     <GridViewColumn Header="Назва Теми">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBox Width="350" Text="{Binding Path=Name, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"/>
+                                                <TextBox Width="350" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -71,7 +71,7 @@
                                     <GridViewColumn Header="Уроків в темі">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBox Width="50" Text="{Binding Path=NumberOfLessons, StringFormat=\{0:D\}, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"/>
+                                                <TextBox Width="50" Text="{Binding Path=NumberOfLessons, StringFormat=\{0:D\}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -79,7 +79,7 @@
                                     <GridViewColumn Header="Тематичний контроль">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <CheckBox IsChecked="{Binding Path=IsThemeControll, Mode=OneWayToSource}"/>
+                                                <CheckBox IsChecked="{Binding Path=IsThemeControll, Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>

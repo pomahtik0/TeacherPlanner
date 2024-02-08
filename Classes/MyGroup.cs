@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,7 @@ using TeacherPlanner.Classes.Interfaces;
 
 namespace TeacherPlanner.Classes
 {
-    public class MyGroup : ConvertToPDF
+    public class MyGroup : ConvertToPDF, INotifyPropertyChanged
     {
         public string GroupName { get; set; } = "";
         
@@ -30,6 +32,7 @@ namespace TeacherPlanner.Classes
                         Themes.Add(new Theme());
                     }
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Themes)));   
             }
         }
         
@@ -40,6 +43,8 @@ namespace TeacherPlanner.Classes
         public int GeneralNumberOfLessons { get; set; }
 
         private List<string> lesonNameList = []; // May be not full list, or oversized
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public DateTime startDate { get; set; }
 
