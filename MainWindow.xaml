@@ -23,6 +23,14 @@
                 <Calendar SelectedDatesChanged="hollidayDates_SelectedDatesChanged" x:Name="hollidayDates" SelectionMode="SingleRange" IsTodayHighlighted="False"/>
             </Expander>
         </DataTemplate>
+        <DataTemplate x:Key="themeListTemplate" DataType="{x:Type types:Theme}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock/>
+                <TextBox/>
+                <TextBox/>
+                <CheckBox/>
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
@@ -51,6 +59,9 @@
                         <Label>Кількість тем:</Label>
                         <TextBox Text="{Binding NumberOfThemes, Mode=OneWayToSource, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                         <Label>Теми:</Label>
+                        <Viewbox>
+                            
+                        </Viewbox>
                     </StackPanel>
                 </Grid>
             </TabItem>
