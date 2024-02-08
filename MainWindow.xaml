@@ -43,7 +43,7 @@
                         <Label>Назва класу:</Label>
                         <TextBox x:Name="groupName_TextBox" Text="{Binding GroupName, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus, Source={StaticResource group}}"/>
                         <Label>Кількість учнів:</Label>
-                        <TextBox/>
+                        <TextBox Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                         <Label>Кількість уроків:</Label>
                         <TextBox/>
                     </StackPanel>
