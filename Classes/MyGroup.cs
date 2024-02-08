@@ -11,7 +11,9 @@ namespace TeacherPlanner.Classes
     internal class MyGroup : ConvertToPDF
     {
         public string GroupName { get; set; } = "";
+        
         public ObservableCollection<Theme> Themes { get; set; } = [];
+        
         public int NumberOfThemes
         {
             get => Themes.Count;
@@ -30,7 +32,11 @@ namespace TeacherPlanner.Classes
                 }
             }
         }
+        
+        public int NumberOfStudents { get; set; }
 
+        private List<string> studentNameList = []; // May be not full list, or oversized
+        
         public void ConvertToPDF(string filename)
         {
             throw new NotImplementedException();
