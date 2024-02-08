@@ -55,7 +55,7 @@ namespace TeacherPlanner.Classes
 
         public bool[] daysOfStudy { get; } = new bool[6]; // Mon. Tue. Wed. Thu. Fri. Sat.
 
-        public void UploadListOfStudentNames_exel(string fileName)
+        public void UploadListOfStudentNames_excel(string fileName)
         {
             // checks for file format
             // loading names to a list
@@ -64,7 +64,7 @@ namespace TeacherPlanner.Classes
             throw new NotImplementedException();
         }
 
-        public void UploadListOfLesonNames_exel(string fileName)
+        public void UploadListOfLesonNames_excel(string fileName)
         {
             // checks for file format
             // loading names to a list
