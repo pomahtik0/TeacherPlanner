@@ -27,7 +27,7 @@ namespace TeacherPlanner
 
         private void AddNewHolliday_Button_Click(object sender, RoutedEventArgs e)
         {
-            listOfHollidays.Items.Add(21);
+            group?.listOfHollidays.Add(new List<DateTime>());
         }
 
         private void hollidayDates_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
