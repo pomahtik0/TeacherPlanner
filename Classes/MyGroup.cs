@@ -78,6 +78,9 @@ namespace TeacherPlanner.Classes
 
         public void ConvertToPDF(string filename)
         {
+            // final checks, throw if failed
+            // for each theme generate 1-2 pages, with tables
+            // insert text boxes to be able to redact lesson names
             throw new NotImplementedException();
         }
     }
