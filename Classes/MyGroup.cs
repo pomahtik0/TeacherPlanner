@@ -8,7 +8,7 @@ using TeacherPlanner.Classes.Interfaces;
 
 namespace TeacherPlanner.Classes
 {
-    internal class MyGroup : ConvertToPDF
+    public class MyGroup : ConvertToPDF
     {
         public string GroupName { get; set; } = "";
         
