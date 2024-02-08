@@ -65,7 +65,7 @@
                                     <GridViewColumn Header="Уроків в темі">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBox Width="50" Text="{Binding Path=NumberOfLessons, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"/>
+                                                <TextBox Width="50" Text="{Binding Path=NumberOfLessons, StringFormat=\{0:D\}, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
