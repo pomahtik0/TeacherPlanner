@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
+using System.Net.WebSockets;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,11 +33,17 @@ namespace TeacherPlanner
 
         private void hollidayDates_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            var control = sender as Control;
-            var parent = control?.Parent as Expander;
+            var calendar = sender as Calendar;
+            var parent = calendar?.Parent as Expander;
+            
+            if (group != null && calendar != null)
+            {
+                group.listOfHollidays[listOfHollidays.SelectedIndex] = calendar.SelectedDates; // updating range of dates
+            }
+
             if (parent != null)
             {
-                parent.GetBindingExpression(Expander.HeaderProperty).UpdateTarget();
+                parent.GetBindingExpression(Expander.HeaderProperty).UpdateTarget(); // updating header and closing calendar
                 parent.IsExpanded = false;
             }
         }
@@ -48,7 +55,7 @@ namespace TeacherPlanner
 
         private void Submit_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
