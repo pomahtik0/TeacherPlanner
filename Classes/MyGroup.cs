@@ -39,7 +39,7 @@ namespace TeacherPlanner.Classes
         
         public int GeneralNumberOfLessons { get; set; }
 
-        private List<string> lesonNameList = [];
+        private List<string> lesonNameList = []; // May be not full list, or oversized
 
         public void ConvertToPDF(string filename)
         {
