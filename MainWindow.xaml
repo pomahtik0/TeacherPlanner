@@ -45,7 +45,7 @@
                         <Label>Кількість учнів:</Label>
                         <TextBox Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                         <Label>Кількість уроків:</Label>
-                        <TextBox/>
+                        <TextBox Text="{Binding GeneralNumberOfLessons, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1">
                         <Label>Кількість тем:</Label>
