@@ -70,7 +70,7 @@ namespace TeacherPlanner.Classes
                 xlWorkBook = xlApp.Workbooks.Open(fileName);
 
                 // Get the first data sheet (you can modify this based on your needs)
-                dataSheet = (Worksheet?)xlWorkBook.Worksheets[1];
+                dataSheet = (Worksheet)xlWorkBook.Worksheets[1];
 
                 // Get the used range (all data in the sheet)
                 dataRange = dataSheet.UsedRange;
@@ -104,11 +104,9 @@ namespace TeacherPlanner.Classes
         }
         public void UploadListOfStudentNames_excel(string fileName)
         {
-            // checks for file format
-            // loading names to a list
-            // setting NumberOfStudents to list count
-            // source was updated event
-            throw new NotImplementedException();
+            studentNameList = GetStringList(fileName);
+            NumberOfStudents = studentNameList.Count;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NumberOfStudents)));
         }
 
         public void UploadListOfLesonNames_excel(string fileName)
