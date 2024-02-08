@@ -67,13 +67,25 @@ namespace TeacherPlanner
             }
         }
 
+        private string? GetExcelDocument()
+        {
+            throw new NotImplementedException();
+        }
+
         private void UploadListOfStudets_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            var filename = GetExcelDocument();
+            if (filename == null)
+                return;
+            group?.UploadListOfStudentNames_exel(filename);
         }
 
         private void UploadListOfLessons_Button_Click(object sender, RoutedEventArgs e)
         {
+            var filename = GetExcelDocument();
+            if (filename == null)
+                return;
+            group?.UploadListOfLesonNames_exel(filename);
 
         }
     }
