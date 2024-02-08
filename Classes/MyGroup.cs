@@ -41,6 +41,12 @@ namespace TeacherPlanner.Classes
 
         private List<string> lesonNameList = []; // May be not full list, or oversized
 
+        public DateTime startDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
+        public List<DateTime> listOfHollidays { get; set; } = [];
+
         public void UploadListOfStudentNames_exel(string fileName)
         {
             // checks for file format
