@@ -47,7 +47,7 @@ namespace TeacherPlanner.Classes
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public DateTime startDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
 
@@ -90,7 +90,7 @@ namespace TeacherPlanner.Classes
                 hollidays.AddRange(dateRange);
             }
 
-            var currentDate = startDate;
+            var currentDate = StartDate;
             while (currentDate <= EndDate)
             {
                 if(!hollidays.Contains(currentDate))
