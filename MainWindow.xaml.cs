@@ -118,7 +118,14 @@ namespace TeacherPlanner
 
         private void CreatePdf_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                group?.ConvertToPDF();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
