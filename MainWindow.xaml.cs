@@ -115,5 +115,10 @@ namespace TeacherPlanner
             group?.UploadListOfLesonNames_txt(filename);
 
         }
+
+        private void CreatePdf_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

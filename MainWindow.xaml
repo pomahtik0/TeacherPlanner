@@ -120,7 +120,7 @@
             </TabItem>
 
             <TabItem Header="Створити пдф">
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center">Створити пдф документ</Button>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="CreatePdf_Button_Click">Створити пдф документ</Button>
             </TabItem>
         </TabControl>
 
