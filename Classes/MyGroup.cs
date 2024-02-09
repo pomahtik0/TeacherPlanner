@@ -148,10 +148,21 @@ namespace TeacherPlanner.Classes
             {
                 throw new InvalidDataException($"Загальна кількість уроків {GeneralNumberOfLessons}, тоді як кількість уроків у всіх темах {numberOfLessonsInThemes}");
             }
+
             SaveDatesToLessons();
-            // assighn all lesson names to Lessons in themes
-            // apply dates to lessons
-            // throw if calculations fail
+
+            if (lessonNameList.Count > 0)
+            {
+                var nameEnum = lessonNameList.GetEnumerator();
+                foreach(var theme in Themes)
+                {
+                    foreach(var lesson in theme.Lessons)
+                    {
+                        if (!nameEnum.MoveNext()) break;
+                        lesson.Name = nameEnum.Current;
+                    }
+                }
+            }
             throw new NotImplementedException();
         }
 
