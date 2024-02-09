@@ -8,6 +8,6 @@ namespace TeacherPlanner.Classes.Interfaces
 {
     public interface ConvertToPDF
     {
-        public void ConvertToPDF(string filename);
+        public void ConvertToPDF(string? filename = null);
     }
 }

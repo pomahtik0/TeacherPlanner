@@ -171,7 +171,7 @@ namespace TeacherPlanner.Classes
             }
         }
 
-        public void ConvertToPDF(string filename)
+        public void ConvertToPDF(string? filename = null)
         {
             // final checks, throw if failed
             // for each theme generate 1-2 pages, with tables
