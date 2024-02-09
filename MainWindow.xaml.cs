@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Net.WebSockets;
 using System.Text;
 using System.Windows;
@@ -56,7 +57,22 @@ namespace TeacherPlanner
 
         private void Submit_Button_Click(object sender, RoutedEventArgs e)
         {
-            group.MakeCalculations();
+            try
+            {
+                group?.MakeCalculations();
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (InvalidDataException ex)
+            {
+                MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Попередження", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void window_KeyDown(object sender, KeyEventArgs e)
