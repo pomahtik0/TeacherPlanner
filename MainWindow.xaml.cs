@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using OfficeOpenXml;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Net.WebSockets;
@@ -25,6 +26,7 @@ namespace TeacherPlanner
         public MainWindow()
         {
             InitializeComponent();
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
 
         private void AddNewHolliday_Button_Click(object sender, RoutedEventArgs e)
