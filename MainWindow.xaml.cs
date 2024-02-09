@@ -56,7 +56,7 @@ namespace TeacherPlanner
 
         private void Submit_Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            Debug.WriteLine("hello");
         }
 
         private void window_KeyDown(object sender, KeyEventArgs e)
