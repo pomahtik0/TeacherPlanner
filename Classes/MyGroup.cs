@@ -43,7 +43,7 @@ namespace TeacherPlanner.Classes
         
         public int GeneralNumberOfLessons { get; set; }
 
-        private List<string> lesonNameList = []; // May be not full list, or oversized
+        private List<string> lessonNameList = []; // May be not full list, or oversized
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -76,11 +76,9 @@ namespace TeacherPlanner.Classes
 
         public void UploadListOfLesonNames_txt(string fileName)
         {
-            // checks for file format
-            // loading names to a list
-            // setting GeneralNumberOfLessons to list count
-            // source was updated event
-            throw new NotImplementedException();
+            lessonNameList = GetStringList(fileName);
+            GeneralNumberOfLessons = lessonNameList.Count;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GeneralNumberOfLessons)));
         }
 
         public void SaveDatesToLessons()
