@@ -83,7 +83,22 @@ namespace TeacherPlanner.Classes
 
         public void SaveDatesToLessons()
         { 
-            // calculate dates
+            var dates = new List<DateTime>();
+            var hollidays = new List<DateTime>();
+            foreach(var dateRange in listOfHollidays) // forming list of excluded dates
+            {
+                hollidays.AddRange(dateRange);
+            }
+
+            var currentDate = startDate;
+            while (currentDate <= EndDate)
+            {
+                if(!hollidays.Contains(currentDate))
+                {
+
+                }
+                currentDate = currentDate.AddDays(1);
+            }
             // apply dates for each lesson
             // throw if not enough dates
             // throw if not enough lessons
@@ -92,6 +107,7 @@ namespace TeacherPlanner.Classes
 
         public void MakeCalculations()
         {
+            SaveDatesToLessons();
             // assighn all lesson names to Lessons in themes
             // apply dates to lessons
             // throw if calculations fail
