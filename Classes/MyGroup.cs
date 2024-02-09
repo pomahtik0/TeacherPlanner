@@ -60,7 +60,10 @@ namespace TeacherPlanner.Classes
             var list = new List<string>();
             foreach (var line in File.ReadLines(fileName))
             {
-                list.Add(line);
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    list.Add(line);
+                }
             }
             return list;
         }
