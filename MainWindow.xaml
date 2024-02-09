@@ -118,6 +118,10 @@
                     </DockPanel>
                 </Grid>
             </TabItem>
+
+            <TabItem Header="Створити пдф">
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center">Створити пдф документ</Button>
+            </TabItem>
         </TabControl>
 
         <Button Grid.Row="1" Margin="10" HorizontalAlignment="Center" Click="Submit_Button_Click">Підтвердити</Button>
