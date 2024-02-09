@@ -8,15 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using TeacherPlanner.Classes.Interfaces;
 using System.IO;
+using QuestPDF;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 
 namespace TeacherPlanner.Classes
 {
     public class MyGroup : ConvertToPDF, INotifyPropertyChanged
     {
         public string GroupName { get; set; } = "";
-        
+
         public ObservableCollection<Theme> Themes { get; set; } = [];
-        
+
         public int NumberOfThemes
         {
             get => Themes.Count;
@@ -33,14 +37,14 @@ namespace TeacherPlanner.Classes
                         Themes.Add(new Theme());
                     }
                 }
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Themes)));   
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Themes)));
             }
         }
-        
+
         public int NumberOfStudents { get; set; }
 
         private List<string> studentNameList = []; // May be not full list, or oversized
-        
+
         public int GeneralNumberOfLessons { get; set; }
 
         private List<string> lessonNameList = []; // May be not full list, or oversized
@@ -82,10 +86,10 @@ namespace TeacherPlanner.Classes
         }
 
         public void SaveDatesToLessons()
-        { 
+        {
             var dates = new List<DateTime>();
             var hollidays = new List<DateTime>();
-            foreach(var dateRange in listOfHollidays) // forming list of excluded dates
+            foreach (var dateRange in listOfHollidays) // forming list of excluded dates
             {
                 hollidays.AddRange(dateRange);
             }
@@ -126,7 +130,7 @@ namespace TeacherPlanner.Classes
 
             foreach (var theme in Themes)
             {
-                foreach(var lesson in theme.Lessons)
+                foreach (var lesson in theme.Lessons)
                 {
                     if (!dateEnum.MoveNext())
                         throw new IndexOutOfRangeException($"Недостатньо дат ({dates.Count}), щоб покрити всі уроки ({GeneralNumberOfLessons}).");
@@ -141,7 +145,7 @@ namespace TeacherPlanner.Classes
         public void MakeCalculations()
         {
             int numberOfLessonsInThemes = 0;
-            foreach(var theme in Themes)
+            foreach (var theme in Themes)
             {
                 numberOfLessonsInThemes += theme.NumberOfLessons;
             }
@@ -155,9 +159,9 @@ namespace TeacherPlanner.Classes
             if (lessonNameList.Count > 0)
             {
                 var nameEnum = lessonNameList.GetEnumerator();
-                foreach(var theme in Themes)
+                foreach (var theme in Themes)
                 {
-                    foreach(var lesson in theme.Lessons)
+                    foreach (var lesson in theme.Lessons)
                     {
                         if (!nameEnum.MoveNext()) break;
                         lesson.Name = nameEnum.Current;
@@ -177,11 +181,11 @@ namespace TeacherPlanner.Classes
             if (NumberOfThemes <= 0) throw new Exception("Введіть кількість тем");
             if (GeneralNumberOfLessons <= 0) throw new Exception("Кількість уроків не може дорівнювати 0");
             if (NumberOfStudents <= 0) throw new Exception("Кількість учнів не може дорівнювати 0");
-            foreach(var theme in Themes)
+            foreach (var theme in Themes)
             {
                 if (theme.NumberOfLessons <= 0) throw new Exception("Кількість уроків в темі не може бути 0");
             }
-            
+
             try
             {
                 MakeCalculations(); // recalculating dates and names
@@ -192,10 +196,45 @@ namespace TeacherPlanner.Classes
             }
 
             filename ??= $"{GroupName}.pdf";
-            // final checks, throw if failed
-            // for each theme generate 1-2 pages, with tables
-            // insert text boxes to be able to redact lesson names
-            throw new NotImplementedException();
+
+            Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.DefaultTextStyle(x => x.FontFamily("Times New Roman"));
+                    page.Size(PageSizes.A4);
+                    page.Margin(10);
+                    page.Content().Table(table =>
+                    {         
+                        table.ColumnsDefinition(columns =>
+                        {
+                            columns.ConstantColumn(20);
+                            columns.ConstantColumn(100);
+                            for (int i = 0; i < Themes[0].NumberOfLessons; i++)
+                            {
+                                columns.RelativeColumn();
+                            }
+                        });
+
+                        table.Header(header =>
+                        {
+                            header.Cell().Border(1).Text("#");
+                            header.Cell().Border(1).Text("Name");
+                            foreach (var lesson in Themes[0].Lessons)
+                            {
+                                header.Cell().Border(1).Text(lesson.Date.ToString("dd/MM"));
+                            }
+                        });
+
+                        for (uint i = 1; i <= NumberOfStudents; i++)
+                        {
+                            table.Cell().Row(i).Column(1).Border(1).Text((i).ToString());
+                            if(i <= studentNameList.Count)
+                            table.Cell().Row(i).Column(2).Border(1).Text(studentNameList[(int)i-1]);
+                        }
+                    });
+                });
+            }).GeneratePdf(filename);
         }
     }
 }
