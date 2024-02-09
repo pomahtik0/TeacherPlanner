@@ -71,7 +71,7 @@ namespace TeacherPlanner
         private string? GetExcelDocument()
         {
             var fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Ексель|*.xls;*.xlsx";
+            fileDialog.Filter = "Текстовий Файл|*.txt";
             var result = fileDialog.ShowDialog();
             if(result == true)
             {
