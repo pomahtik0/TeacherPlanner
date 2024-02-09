@@ -129,7 +129,7 @@ namespace TeacherPlanner.Classes
                 foreach(var lesson in theme.Lessons)
                 {
                     if (!dateEnum.MoveNext())
-                        throw new IndexOutOfRangeException("Недостатньо дат, щоб покрити всі уроки");
+                        throw new IndexOutOfRangeException($"Недостатньо дат ({dates.Count}), щоб покрити всі уроки ({GeneralNumberOfLessons}).");
                     lesson.Date = dateEnum.Current;
                 }
             }
