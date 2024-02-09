@@ -129,6 +129,15 @@ namespace TeacherPlanner.Classes
 
         public void MakeCalculations()
         {
+            int numberOfLessonsInThemes = 0;
+            foreach(var theme in Themes)
+            {
+                numberOfLessonsInThemes += theme.NumberOfLessons;
+            }
+            if (numberOfLessonsInThemes != GeneralNumberOfLessons)
+            {
+                throw new InvalidDataException($"Загальна кількість уроків {GeneralNumberOfLessons}, тоді як кількість уроків у всіх темах {numberOfLessonsInThemes}");
+            }
             SaveDatesToLessons();
             // assighn all lesson names to Lessons in themes
             // apply dates to lessons
