@@ -162,8 +162,11 @@ namespace TeacherPlanner.Classes
                         lesson.Name = nameEnum.Current;
                     }
                 }
+                if (lessonNameList.Count != GeneralNumberOfLessons)
+                {
+                    throw new Exception($"Попередження! Кількість завантажених уроків ({lessonNameList.Count}), і вказана кількість уроків ({GeneralNumberOfLessons}) не співпадають!");
+                }
             }
-            throw new NotImplementedException();
         }
 
         public void ConvertToPDF(string filename)
