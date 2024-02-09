@@ -218,19 +218,33 @@ namespace TeacherPlanner.Classes
 
                         table.Header(header =>
                         {
-                            header.Cell().Border(1).Text("#");
-                            header.Cell().Border(1).Text("Name");
+                            header.Cell().Element(Block).Text("№");
+                            header.Cell().Element(Block).Text("Ім'я");
                             foreach (var lesson in Themes[0].Lessons)
                             {
-                                header.Cell().Border(1).Text(lesson.Date.ToString("dd/MM"));
+                                header.Cell().Element(Block).Text(lesson.Date.ToString("dd/MM"));
                             }
                         });
 
-                        for (uint i = 1; i <= NumberOfStudents; i++)
+                        for (int i = 1; i <= NumberOfStudents; i++)
                         {
-                            table.Cell().Row(i).Column(1).Border(1).Text((i).ToString());
-                            if(i <= studentNameList.Count)
-                            table.Cell().Row(i).Column(2).Border(1).Text(studentNameList[(int)i-1]);
+                            table.Cell().Element(Block).Text((i).ToString());
+                            if (i <= studentNameList.Count)
+                                table.Cell().Element(Block).Text(studentNameList[i - 1]);
+                            else table.Cell().Element(Block);
+                            foreach(var lesson in Themes[0].Lessons)
+                            {
+                                table.Cell().Element(Block);
+                            }
+                        }
+
+                        static QuestPDF.Infrastructure.IContainer Block(QuestPDF.Infrastructure.IContainer container)
+                        {
+                            return container
+                                .Border(1)
+                                .ShowOnce()
+                                .AlignCenter()
+                                .AlignMiddle();
                         }
                     });
                 });
