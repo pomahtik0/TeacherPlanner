@@ -88,7 +88,7 @@ namespace TeacherPlanner
             var filename = GetExcelDocument();
             if (filename == null)
                 return;
-            group?.UploadListOfStudentNames_excel(filename);
+            group?.UploadListOfStudentNames_txt(filename);
         }
 
         private void UploadListOfLessons_Button_Click(object sender, RoutedEventArgs e)
@@ -96,7 +96,7 @@ namespace TeacherPlanner
             var filename = GetExcelDocument();
             if (filename == null)
                 return;
-            group?.UploadListOfLesonNames_excel(filename);
+            group?.UploadListOfLesonNames_txt(filename);
 
         }
     }

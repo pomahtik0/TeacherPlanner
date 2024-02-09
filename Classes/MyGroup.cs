@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeacherPlanner.Classes.Interfaces;
-using OfficeOpenXml;
 using System.IO;
 
 namespace TeacherPlanner.Classes
@@ -61,14 +60,14 @@ namespace TeacherPlanner.Classes
             
             return null;
         }
-        public void UploadListOfStudentNames_excel(string fileName)
+        public void UploadListOfStudentNames_txt(string fileName)
         {
             studentNameList = GetStringList(fileName);
             NumberOfStudents = studentNameList.Count;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NumberOfStudents)));
         }
 
-        public void UploadListOfLesonNames_excel(string fileName)
+        public void UploadListOfLesonNames_txt(string fileName)
         {
             // checks for file format
             // loading names to a list
