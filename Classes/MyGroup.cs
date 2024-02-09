@@ -135,6 +135,7 @@ namespace TeacherPlanner.Classes
             }
             if (dateEnum.MoveNext())
                 throw new IndexOutOfRangeException($"Забагато дат, кількість дат {dates.Count}, а кількість уроків {GeneralNumberOfLessons}");
+            dateEnum.Dispose();
         }
 
         public void MakeCalculations()
@@ -166,6 +167,7 @@ namespace TeacherPlanner.Classes
                 {
                     throw new Exception($"Попередження! Кількість завантажених уроків ({lessonNameList.Count}), і вказана кількість уроків ({GeneralNumberOfLessons}) не співпадають!");
                 }
+                nameEnum.Dispose();
             }
         }
 
