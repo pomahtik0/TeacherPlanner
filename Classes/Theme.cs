@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,11 @@ namespace TeacherPlanner.Classes
             get => Lessons.Count;
             set
             {
-                Lessons = new List<Lesson>(value);
+                Lessons.Clear();
+                while( value > Lessons.Count )
+                {
+                    Lessons.Add(new Lesson());
+                }
             }
         }
     }
