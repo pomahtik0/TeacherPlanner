@@ -121,10 +121,20 @@ namespace TeacherPlanner.Classes
                 }
                 currentDate = currentDate.AddDays(1);
             }
-            // apply dates for each lesson
-            // throw if not enough dates
-            // throw if not enough lessons
-            throw new NotImplementedException();
+
+            var dateEnum = dates.GetEnumerator();
+
+            foreach (var theme in Themes)
+            {
+                foreach(var lesson in theme.Lessons)
+                {
+                    if (!dateEnum.MoveNext())
+                        throw new IndexOutOfRangeException("Недостатньо дат, щоб покрити всі уроки");
+                    lesson.Date = dateEnum.Current;
+                }
+            }
+            if (dateEnum.MoveNext())
+                throw new IndexOutOfRangeException($"Забагато дат, кількість дат {dates.Count}, а кількість уроків {GeneralNumberOfLessons}");
         }
 
         public void MakeCalculations()
