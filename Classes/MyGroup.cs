@@ -57,8 +57,12 @@ namespace TeacherPlanner.Classes
 
         private List<string> GetStringList(string fileName)
         {
-            
-            return null;
+            var list = new List<string>();
+            foreach (var line in File.ReadLines(fileName))
+            {
+                list.Add(line);
+            }
+            return list;
         }
         public void UploadListOfStudentNames_txt(string fileName)
         {
