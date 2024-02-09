@@ -93,9 +93,31 @@ namespace TeacherPlanner.Classes
             var currentDate = StartDate;
             while (currentDate <= EndDate)
             {
-                if(!hollidays.Contains(currentDate))
+                if (currentDate.DayOfWeek != DayOfWeek.Sunday && !hollidays.Contains(currentDate))
                 {
-
+                    switch (currentDate.DayOfWeek)
+                    {
+                        case DayOfWeek.Monday:
+                            if (daysOfStudy[0]) dates.Add(currentDate);
+                            break;
+                        case DayOfWeek.Tuesday:
+                            if (daysOfStudy[1]) dates.Add(currentDate);
+                            break;
+                        case DayOfWeek.Wednesday:
+                            if (daysOfStudy[2]) dates.Add(currentDate);
+                            break;
+                        case DayOfWeek.Thursday:
+                            if (daysOfStudy[3]) dates.Add(currentDate);
+                            break;
+                        case DayOfWeek.Friday:
+                            if (daysOfStudy[4]) dates.Add(currentDate);
+                            break;
+                        case DayOfWeek.Saturday:
+                            if (daysOfStudy[5]) dates.Add(currentDate);
+                            break;
+                        default:
+                            throw new Exception("unknown day of week");
+                    }
                 }
                 currentDate = currentDate.AddDays(1);
             }
