@@ -173,6 +173,24 @@ namespace TeacherPlanner.Classes
 
         public void ConvertToPDF(string? filename = null)
         {
+            try
+            {
+                MakeCalculations(); // recalculating dates and names
+            }
+            catch (Exception e)
+            {
+                if (e is IndexOutOfRangeException || e is InvalidDataException) { throw; } // rethrowing if exception is critical
+            }
+
+            if (string.IsNullOrWhiteSpace(GroupName)) throw new Exception("Введіть ім'я групи");
+            if (NumberOfThemes <= 0) throw new Exception("Введіть кількість тем");
+            if (GeneralNumberOfLessons <= 0) throw new Exception("Кількість уроків не може дорівнювати 0");
+            if (NumberOfStudents <= 0) throw new Exception("Кількість учнів не може дорівнювати 0");
+            foreach(var theme in Themes)
+            {
+                if (theme.NumberOfLessons <= 0) throw new Exception("Кількість уроків в темі не може бути 0");
+            }
+            filename ??= $"{GroupName}.pdf";
             // final checks, throw if failed
             // for each theme generate 1-2 pages, with tables
             // insert text boxes to be able to redact lesson names
