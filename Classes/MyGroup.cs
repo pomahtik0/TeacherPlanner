@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeacherPlanner.Classes.Interfaces;
+using OfficeOpenXml;
 using System.IO;
 
 namespace TeacherPlanner.Classes
@@ -57,49 +58,8 @@ namespace TeacherPlanner.Classes
 
         private List<string> GetStringList(string fileName)
         {
-            Application xlApp = new Application();
-            Workbook xlWorkBook = null;
-            Worksheet dataSheet = null;
-            Microsoft.Office.Interop.Excel.Range dataRange = null;
-            List<string> namesList = new List<string>();
-
-            try
-            {
-                // Open the Excel file
-                xlWorkBook = xlApp.Workbooks.Open(fileName);
-
-                // Get the first data sheet (you can modify this based on your needs)
-                dataSheet = (Worksheet)xlWorkBook.Worksheets[1];
-
-                // Get the used range (all data in the sheet)
-                dataRange = dataSheet.UsedRange;
-
-                // Read data into an object array
-                object[,] valueArray = (object[,])dataRange.Value;
-
-                // Iterate through the rows (assuming names are in a column)
-                for (int row = 1; row <= valueArray.GetLength(0); row++)
-                {
-                    string name = valueArray[row, 1]?.ToString(); // Assuming names are in the first column
-                    if (!string.IsNullOrEmpty(name))
-                    {
-                        namesList.Add(name);
-                    }
-                }
-
-                // Now 'namesList' contains the names as strings.
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                // Clean up resources
-                xlWorkBook?.Close(false);
-                xlApp?.Quit();
-            }
-            return namesList;
+            
+            return null;
         }
         public void UploadListOfStudentNames_excel(string fileName)
         {
