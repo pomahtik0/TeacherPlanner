@@ -131,5 +131,10 @@ namespace TeacherPlanner
         {
             (sender as TextBox)?.SelectAll();
         }
+
+        private void SelectPdf_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
