@@ -197,7 +197,7 @@ namespace TeacherPlanner.Classes
                 if (e is IndexOutOfRangeException || e is InvalidDataException) { throw; } // rethrowing if exception is critical
             }
 
-            filename ??= $"{GroupName}.pdf";
+            if (string.IsNullOrWhiteSpace(pdfSettings.FullPath)) throw new Exception("Введіть ім'я файлу");
 
             Document.Create(container =>
             {
@@ -292,7 +292,7 @@ namespace TeacherPlanner.Classes
                         });
                     });
                 }
-            }).GeneratePdf(filename);
+            }).GeneratePdf(pdfSettings.FullPath);
         }
     }
 }
