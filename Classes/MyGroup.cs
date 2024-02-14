@@ -199,7 +199,7 @@ namespace TeacherPlanner.Classes
 
             Document.Create(container =>
             {
-
+                int lessonIndex = 1;
                 foreach (var theme in Themes)
                 {
                     container.Page(page =>
@@ -256,11 +256,11 @@ namespace TeacherPlanner.Classes
                             table.Cell().Element(Block).Text("Дата");
                             table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(theme.Name);
 
-                            for (int i = 1; i <= theme.NumberOfLessons; i++)
+                            foreach(var lesson in theme.Lessons)
                             {
-                                table.Cell().Element(Block).Text(i.ToString());
-                                table.Cell().Element(Block).Text(theme.Lessons[i - 1].Date.ToString("dd/MM"));
-                                table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(theme.Lessons[i - 1].Name);
+                                table.Cell().Element(Block).Text(lessonIndex++.ToString());
+                                table.Cell().Element(Block).Text(lesson.Date.ToString("dd/MM"));
+                                table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(lesson.Name);
                             }
 
                             static QuestPDF.Infrastructure.IContainer Block(QuestPDF.Infrastructure.IContainer container)
