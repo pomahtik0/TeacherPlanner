@@ -72,6 +72,7 @@ namespace TeacherPlanner.Classes
             }
             return list;
         }
+
         public void UploadListOfStudentNames_txt(string fileName)
         {
             studentNameList = GetStringList(fileName);
