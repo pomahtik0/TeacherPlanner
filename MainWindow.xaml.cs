@@ -134,7 +134,16 @@ namespace TeacherPlanner
 
         private void SelectPdf_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            var fileDialog = new SaveFileDialog();
+            fileDialog.AddExtension = true;
+            fileDialog.CheckFileExists = false;
+            fileDialog.CheckPathExists = false;
+            fileDialog.Filter = ".pdf|*.pdf";
+            var result = fileDialog.ShowDialog();
+            if(result == true)
+            {
+                fullPathPdf_TextBox.Text = fileDialog.FileName;
+            }
         }
     }
 }

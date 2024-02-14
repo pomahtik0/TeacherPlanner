@@ -125,7 +125,7 @@
                     <StackPanel HorizontalAlignment="Left" Margin="20">
                         <Label>Шлях до файлу.</Label>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Width="200" Text="{Binding Source={StaticResource pdfSettings}, Path=FullPath, Mode=OneWayToSource}"/>
+                            <TextBox x:Name="fullPathPdf_TextBox" Width="200" Text="{Binding Source={StaticResource pdfSettings}, Path=FullPath, Mode=OneWayToSource}"/>
                             <Button Click="SelectPdf_Button_Click">Огляд</Button>
                         </StackPanel>
                         <Label>Розмір шрифту</Label>
