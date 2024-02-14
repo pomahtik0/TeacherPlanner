@@ -121,7 +121,7 @@ namespace TeacherPlanner
         {
             try
             {
-                group?.ConvertToPDF();
+                group?.ConvertToPDF(pdfSettings);
             }
             catch(Exception ex)
             {
