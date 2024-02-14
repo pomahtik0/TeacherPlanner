@@ -221,6 +221,8 @@ namespace TeacherPlanner.Classes
                                 {
                                     columns.RelativeColumn();
                                 }
+                                if(theme.IsThemeControll)
+                                    columns.RelativeColumn();
                             });
 
                             table.Header(header =>
@@ -231,6 +233,8 @@ namespace TeacherPlanner.Classes
                                 {
                                     header.Cell().Element(Block).Text(lesson.Date.ToString("dd/MM"));
                                 }
+                                if (theme.IsThemeControll)
+                                    header.Cell().Element(Block).Text("T");
                             });
 
                             for (int i = 1; i <= NumberOfStudents; i++)
@@ -243,10 +247,12 @@ namespace TeacherPlanner.Classes
                                 {
                                     table.Cell().Element(Block);
                                 }
+                                if (theme.IsThemeControll)
+                                    table.Cell().Element(Block);
                             }
 
                             uint collspan = (uint)theme.NumberOfLessons + 1;
-
+                            if (theme.IsThemeControll) collspan++;
                             for (int i = 0; i < 4; i++)
                             {
                                 table.Cell().ColumnSpan(collspan + 2).Text("");
