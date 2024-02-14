@@ -149,6 +149,7 @@ namespace TeacherPlanner
             if(result == true)
             {
                 fullPathPdf_TextBox.Text = fileDialog.FileName;
+                fullPathPdf_TextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             }
         }
     }
