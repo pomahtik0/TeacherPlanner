@@ -22,6 +22,10 @@ namespace TeacherPlanner.Classes
             get { return Path.GetFileName(fullPath); }
         }
 
+        public string DirectoryPath
+        {
+            get => Path.GetDirectoryName(fullPath);
+        }
         public int TextSize { get; set; }
     }
 }
