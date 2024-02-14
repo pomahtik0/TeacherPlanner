@@ -10,6 +10,7 @@
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" KeyDown="window_KeyDown">
     <Window.Resources>
         <types:MyGroup x:Key="group"/>
+        <types:PdfSettings x:Key="pdfSettings"/>
         <converters:DatesToStringOneWay x:Key="dateToStringConverter"/>
         <Style TargetType="{x:Type CheckBox}">
             <Setter Property="VerticalAlignment" Value="Center"/>
