@@ -41,21 +41,21 @@
                     
                     <StackPanel Margin="10,10,25,0">
                         <Label>Назва класу:</Label>
-                        <TextBox Text="{Binding GroupName, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus, Source={StaticResource group}}"/>
+                        <TextBox GotFocus="TextBox_GotFocus" Text="{Binding GroupName, Mode=OneWayToSource, UpdateSourceTrigger=LostFocus, Source={StaticResource group}}"/>
                         <Label>Кількість учнів:</Label>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Width="30" Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
+                            <TextBox Width="30" GotFocus="TextBox_GotFocus" Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                             <Button Focusable="False" Click="UploadListOfStudets_Button_Click">Завантажити</Button>
                         </StackPanel>
                         <Label>Кількість уроків:</Label>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Width="30" Text="{Binding GeneralNumberOfLessons, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
+                            <TextBox Width="30" GotFocus="TextBox_GotFocus" Text="{Binding GeneralNumberOfLessons, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                             <Button Focusable="False" Click="UploadListOfLessons_Button_Click">Завантажити</Button>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1">
                         <Label>Кількість тем:</Label>
-                        <TextBox Width="30" HorizontalAlignment="Left" Text="{Binding NumberOfThemes, Mode=OneWayToSource, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
+                        <TextBox GotFocus="TextBox_GotFocus" Width="30" HorizontalAlignment="Left" Text="{Binding NumberOfThemes, Mode=OneWayToSource, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
                         <Label>Теми:</Label>
                         <ListView ItemsSource="{Binding Path=Themes, Mode=OneWay, Source={StaticResource group}}">
                             <ListView.View>
@@ -63,7 +63,7 @@
                                     <GridViewColumn Header="Назва Теми">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBox Width="350" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                                                <TextBox GotFocus="TextBox_GotFocus" Width="350" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -71,7 +71,7 @@
                                     <GridViewColumn Header="Уроків в темі">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBox Width="50" Text="{Binding Path=NumberOfLessons, StringFormat=\{0:D\}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                                                <TextBox GotFocus="TextBox_GotFocus" Width="50" Text="{Binding Path=NumberOfLessons, StringFormat=\{0:D\}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>

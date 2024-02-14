@@ -126,5 +126,10 @@ namespace TeacherPlanner
                 MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as TextBox)?.SelectAll();
+        }
     }
 }
