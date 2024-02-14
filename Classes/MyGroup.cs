@@ -199,88 +199,91 @@ namespace TeacherPlanner.Classes
 
             Document.Create(container =>
             {
-                container.Page(page =>
+
+                foreach (var theme in Themes)
                 {
-                    page.DefaultTextStyle(x => x.FontFamily("Times New Roman"));
-                    page.Size(PageSizes.A4);
-                    page.MarginLeft(20);
-                    page.MarginRight(15);
-                    page.MarginTop(20);
-                    page.MarginBottom(20);
-
-                    page.Content().Table(table =>
-                    {         
-                        table.ColumnsDefinition(columns =>
+                    container.Page(page =>
+                    {
+                        page.DefaultTextStyle(x => x.FontFamily("Times New Roman"));
+                        page.Size(PageSizes.A4);
+                        page.MarginLeft(20);
+                        page.MarginRight(15);
+                        page.MarginTop(20);
+                        page.MarginBottom(20);
+                        page.Content().Table(table =>
                         {
-                            columns.ConstantColumn(20);
-                            columns.ConstantColumn(100);
-                            for (int i = 0; i <= Themes[0].NumberOfLessons; i++)
+                            table.ColumnsDefinition(columns =>
                             {
-                                columns.RelativeColumn();
+                                columns.ConstantColumn(20);
+                                columns.ConstantColumn(100);
+                                for (int i = 0; i <= theme.NumberOfLessons; i++)
+                                {
+                                    columns.RelativeColumn();
+                                }
+                            });
+
+                            table.Header(header =>
+                            {
+                                header.Cell().Element(Block).Text("№");
+                                header.Cell().ColumnSpan(2).Element(Block).Text("Ім'я");
+                                foreach (var lesson in theme.Lessons)
+                                {
+                                    header.Cell().Element(Block).Text(lesson.Date.ToString("dd/MM"));
+                                }
+                            });
+
+                            for (int i = 1; i <= NumberOfStudents; i++)
+                            {
+                                table.Cell().Element(Block).Text((i).ToString());
+                                if (i <= studentNameList.Count)
+                                    table.Cell().ColumnSpan(2).Element(TextBlock).Text(studentNameList[i - 1]);
+                                else table.Cell().ColumnSpan(2).Element(Block);
+                                foreach (var lesson in theme.Lessons)
+                                {
+                                    table.Cell().Element(Block);
+                                }
+                            }
+
+                            uint collspan = (uint)theme.NumberOfLessons + 1;
+
+                            for (int i = 0; i < 4; i++)
+                            {
+                                table.Cell().ColumnSpan(collspan + 2).Text("");
+                            }
+
+
+                            table.Cell().Element(Block).Text("№");
+                            table.Cell().Element(Block).Text("Дата");
+                            table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(theme.Name);
+
+                            for (int i = 1; i <= theme.NumberOfLessons; i++)
+                            {
+                                table.Cell().Element(Block).Text(i.ToString());
+                                table.Cell().Element(Block).Text(theme.Lessons[i - 1].Date.ToString("dd/MM"));
+                                table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(theme.Lessons[i - 1].Name);
+                            }
+
+                            static QuestPDF.Infrastructure.IContainer Block(QuestPDF.Infrastructure.IContainer container)
+                            {
+                                return container
+                                    .Border(1)
+                                    .ShowOnce()
+                                    .AlignCenter()
+                                    .AlignMiddle();
+                            }
+
+                            static QuestPDF.Infrastructure.IContainer TextBlock(QuestPDF.Infrastructure.IContainer container)
+                            {
+                                return container
+                                    .Border(1)
+                                    .ShowOnce()
+                                    .AlignLeft()
+                                    .PaddingLeft(5)
+                                    .AlignMiddle();
                             }
                         });
-
-                        table.Header(header =>
-                        {
-                            header.Cell().Element(Block).Text("№");
-                            header.Cell().ColumnSpan(2).Element(Block).Text("Ім'я");
-                            foreach (var lesson in Themes[0].Lessons)
-                            {
-                                header.Cell().Element(Block).Text(lesson.Date.ToString("dd/MM"));
-                            }
-                        });
-
-                        for (int i = 1; i <= NumberOfStudents; i++)
-                        {
-                            table.Cell().Element(Block).Text((i).ToString());
-                            if (i <= studentNameList.Count)
-                                table.Cell().ColumnSpan(2).Element(TextBlock).Text(studentNameList[i - 1]);
-                            else table.Cell().Element(Block);
-                            foreach(var lesson in Themes[0].Lessons)
-                            {
-                                table.Cell().Element(Block);
-                            }
-                        }
-
-                        uint collspan = (uint)Themes[0].NumberOfLessons + 1;
-
-                        for(int i = 0; i < 4; i++)
-                        {
-                            table.Cell().ColumnSpan(collspan + 2).Text("");
-                        }
-
-
-                        table.Cell().Element(Block).Text("№");
-                        table.Cell().Element(Block).Text("Дата");
-                        table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(Themes[0].Name);
-
-                        for(int i = 1;i <= Themes[0].NumberOfLessons;i++)
-                        {
-                            table.Cell().Element(Block).Text(i.ToString());
-                            table.Cell().Element(Block).Text(Themes[0].Lessons[i - 1].Date.ToString("dd/MM"));
-                            table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(Themes[0].Lessons[i - 1].Name);
-                        }
-
-                        static QuestPDF.Infrastructure.IContainer Block(QuestPDF.Infrastructure.IContainer container)
-                        {
-                            return container
-                                .Border(1)
-                                .ShowOnce()
-                                .AlignCenter()
-                                .AlignMiddle();
-                        }
-
-                        static QuestPDF.Infrastructure.IContainer TextBlock(QuestPDF.Infrastructure.IContainer container)
-                        {
-                            return container
-                                .Border(1)
-                                .ShowOnce()
-                                .AlignLeft()
-                                .PaddingLeft(5)
-                                .AlignMiddle();
-                        }
                     });
-                });
+                }
             }).GeneratePdf(filename);
         }
     }
