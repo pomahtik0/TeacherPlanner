@@ -130,7 +130,9 @@ namespace TeacherPlanner
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            MessageBox.Show("Файл створено успішно", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
