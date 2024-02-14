@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>15d0c6af-a54a-40cd-a32b-8389748075c0.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="15d0c6af-a54a-40cd-a32b-8389748075c0.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="QuestPDF" Version="2022.12.*" />
