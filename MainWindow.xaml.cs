@@ -66,15 +66,19 @@ namespace TeacherPlanner
             catch (IndexOutOfRangeException ex)
             {
                 MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
             catch (InvalidDataException ex)
             {
                 MessageBox.Show(ex.Message, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Попередження", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
+            MessageBox.Show("Всі числа співпадають!", "Успіх", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
 
         private void window_KeyDown(object sender, KeyEventArgs e)
