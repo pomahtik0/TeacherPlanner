@@ -23,6 +23,7 @@ namespace TeacherPlanner
     public partial class MainWindow : Window
     {
         public MyGroup? group;
+        public PdfSettings? pdfSettings;
         public MainWindow()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace TeacherPlanner
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             group = this.TryFindResource("group") as MyGroup;
+            pdfSettings = this.TryFindResource("pdfSettings") as PdfSettings;
         }
 
         private void Submit_Button_Click(object sender, RoutedEventArgs e)

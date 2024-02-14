@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeacherPlanner.Classes
 {
-    internal class PdfSettings
+    public class PdfSettings
     {
         private string fullPath = string.Empty;
 
