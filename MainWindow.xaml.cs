@@ -79,7 +79,6 @@ namespace TeacherPlanner
         {
             if(e.Key == Key.Return || e.Key == Key.Enter)
             {
-                Debug.WriteLine(e.Key);
                 Keyboard.Focus(mainGrid);
             }
         }
