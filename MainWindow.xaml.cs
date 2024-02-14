@@ -133,6 +133,7 @@ namespace TeacherPlanner
                 return;
             }
             MessageBox.Show("Файл створено успішно", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
+            Process.Start("explorer.exe", "/select, " + pdfSettings.FullPath);
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
