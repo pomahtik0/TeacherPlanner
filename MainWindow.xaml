@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
         
         <TabControl Focusable="False">
-            <TabItem Header="Загальна інформація" Focusable="False">
+            <TabItem Header="Загальна інформація">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -90,7 +90,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Дати" Focusable="False">
+            <TabItem Header="Дати">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -119,8 +119,20 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Створити пдф" Focusable="False">
-                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="CreatePdf_Button_Click">Створити пдф документ</Button>
+            <TabItem Header="Створити пдф">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Left" Margin="20">
+                        <Label>Шлях до файлу.</Label>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Width="200"/>
+                            <Button>Огляд</Button>
+                        </StackPanel>
+                        <Label>Розмір шрифту</Label>
+                        <TextBlock Text="12" Width="40" HorizontalAlignment="Left"/>
+                        <Line Height="50"/>
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="CreatePdf_Button_Click">Створити пдф документ</Button>
+                    </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
 
