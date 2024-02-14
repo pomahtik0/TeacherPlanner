@@ -177,7 +177,7 @@ namespace TeacherPlanner.Classes
             }
         }
 
-        public void ConvertToPDF(string? filename = null)
+        public void ConvertToPDF(PdfSettings pdfSettings)
         {
             if (string.IsNullOrWhiteSpace(GroupName)) throw new Exception("Введіть ім'я групи");
             if (NumberOfThemes <= 0) throw new Exception("Введіть кількість тем");
