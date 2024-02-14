@@ -31,8 +31,8 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
-        <TabControl>
-            <TabItem Header="Загальна інформація">
+        <TabControl Focusable="False">
+            <TabItem Header="Загальна інформація" Focusable="False">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -45,12 +45,12 @@
                         <Label>Кількість учнів:</Label>
                         <StackPanel Orientation="Horizontal">
                             <TextBox Width="30" Text="{Binding NumberOfStudents, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
-                            <Button Click="UploadListOfStudets_Button_Click">Завантажити</Button>
+                            <Button Focusable="False" Click="UploadListOfStudets_Button_Click">Завантажити</Button>
                         </StackPanel>
                         <Label>Кількість уроків:</Label>
                         <StackPanel Orientation="Horizontal">
                             <TextBox Width="30" Text="{Binding GeneralNumberOfLessons, Mode=TwoWay, StringFormat=\{0:D\}, Source={StaticResource group}, UpdateSourceTrigger=LostFocus}" />
-                            <Button Click="UploadListOfLessons_Button_Click">Завантажити</Button>
+                            <Button Focusable="False" Click="UploadListOfLessons_Button_Click">Завантажити</Button>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1">
@@ -124,6 +124,6 @@
             </TabItem>
         </TabControl>
 
-        <Button Grid.Row="1" Margin="10" HorizontalAlignment="Center" Click="Submit_Button_Click">Підтвердити</Button>
+        <Button Grid.Row="1" Margin="10" HorizontalAlignment="Center" Click="Submit_Button_Click" Focusable="False">Підтвердити</Button>
     </Grid>
 </Window>
