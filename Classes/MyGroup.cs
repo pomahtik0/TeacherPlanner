@@ -12,6 +12,7 @@ using QuestPDF;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using System.Windows.Documents;
 
 namespace TeacherPlanner.Classes
 {
@@ -254,7 +255,7 @@ namespace TeacherPlanner.Classes
 
                             table.Cell().Element(Block).Text("№");
                             table.Cell().Element(Block).Text("Дата");
-                            table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(theme.Name);
+                            table.Cell().ColumnSpan(collspan).Element(TextBlock).PaddingLeft(15).Text(theme.Name).Bold();
 
                             foreach(var lesson in theme.Lessons)
                             {
