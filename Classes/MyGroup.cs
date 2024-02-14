@@ -203,14 +203,18 @@ namespace TeacherPlanner.Classes
                 {
                     page.DefaultTextStyle(x => x.FontFamily("Times New Roman"));
                     page.Size(PageSizes.A4);
-                    page.Margin(10);
+                    page.MarginLeft(20);
+                    page.MarginRight(15);
+                    page.MarginTop(20);
+                    page.MarginBottom(20);
+
                     page.Content().Table(table =>
                     {         
                         table.ColumnsDefinition(columns =>
                         {
                             columns.ConstantColumn(20);
                             columns.ConstantColumn(100);
-                            for (int i = 0; i < Themes[0].NumberOfLessons; i++)
+                            for (int i = 0; i <= Themes[0].NumberOfLessons; i++)
                             {
                                 columns.RelativeColumn();
                             }
@@ -219,7 +223,7 @@ namespace TeacherPlanner.Classes
                         table.Header(header =>
                         {
                             header.Cell().Element(Block).Text("№");
-                            header.Cell().Element(Block).Text("Ім'я");
+                            header.Cell().ColumnSpan(2).Element(Block).Text("Ім'я");
                             foreach (var lesson in Themes[0].Lessons)
                             {
                                 header.Cell().Element(Block).Text(lesson.Date.ToString("dd/MM"));
@@ -230,12 +234,31 @@ namespace TeacherPlanner.Classes
                         {
                             table.Cell().Element(Block).Text((i).ToString());
                             if (i <= studentNameList.Count)
-                                table.Cell().Element(Block).Text(studentNameList[i - 1]);
+                                table.Cell().ColumnSpan(2).Element(TextBlock).Text(studentNameList[i - 1]);
                             else table.Cell().Element(Block);
                             foreach(var lesson in Themes[0].Lessons)
                             {
                                 table.Cell().Element(Block);
                             }
+                        }
+
+                        uint collspan = (uint)Themes[0].NumberOfLessons + 1;
+
+                        for(int i = 0; i < 4; i++)
+                        {
+                            table.Cell().ColumnSpan(collspan + 2).Text("");
+                        }
+
+
+                        table.Cell().Element(Block).Text("№");
+                        table.Cell().Element(Block).Text("Дата");
+                        table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(Themes[0].Name);
+
+                        for(int i = 1;i <= Themes[0].NumberOfLessons;i++)
+                        {
+                            table.Cell().Element(Block).Text(i.ToString());
+                            table.Cell().Element(Block).Text(Themes[0].Lessons[i - 1].Date.ToString("dd/MM"));
+                            table.Cell().ColumnSpan(collspan).Element(TextBlock).Text(Themes[0].Lessons[i - 1].Name);
                         }
 
                         static QuestPDF.Infrastructure.IContainer Block(QuestPDF.Infrastructure.IContainer container)
@@ -244,6 +267,16 @@ namespace TeacherPlanner.Classes
                                 .Border(1)
                                 .ShowOnce()
                                 .AlignCenter()
+                                .AlignMiddle();
+                        }
+
+                        static QuestPDF.Infrastructure.IContainer TextBlock(QuestPDF.Infrastructure.IContainer container)
+                        {
+                            return container
+                                .Border(1)
+                                .ShowOnce()
+                                .AlignLeft()
+                                .PaddingLeft(5)
                                 .AlignMiddle();
                         }
                     });
