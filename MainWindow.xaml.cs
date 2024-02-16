@@ -123,6 +123,7 @@ namespace TeacherPlanner
 
         private void CreatePdf_Button_Click(object sender, RoutedEventArgs e)
         {
+            if (pdfSettings == null) return;
             try
             {
                 group?.ConvertToPDF(pdfSettings);
