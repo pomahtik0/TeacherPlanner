@@ -17,6 +17,15 @@ A simple program to create pdf document with tables that represent teachers plan
 
 ## Example screenshots
 
+Page 1 after all fields entered and all files uploaded:
+![Filled Page 1](screenshots/Filled-Page-1.jpg)
+
+Page 2 after all fields entered and all files uploaded:
+![Filled Page 1](screenshots/Filled-Page-1.jpg)
+
+The look of created pdf document:
+![pdf cocument](screenshots/pdf-document-example.jpg)
+
 ## Usings
 
 - C#;
