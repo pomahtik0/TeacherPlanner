@@ -23,7 +23,9 @@ namespace TeacherPlanner
     public partial class MainWindow : Window
     {
         public MyGroup? group;
+
         public PdfSettings? pdfSettings;
+
         public MainWindow()
         {
             InitializeComponent();
