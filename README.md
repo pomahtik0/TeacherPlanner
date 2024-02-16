@@ -31,4 +31,11 @@ The look of created pdf document:
 - C#;
 - .NET 8.0;
 - WPF;
-- QuestPDF.
+- QuestPDF (2022.12.*)
+
+## Plans for future
+
+- [ ] more settings to create pdf document;
+- [ ] more flexible last theme;
+- [ ] allow to delete holliday from list;
+- [ ] allow to make list of students and list of lessons in the sepperate window within program.
